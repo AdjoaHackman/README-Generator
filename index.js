@@ -51,19 +51,20 @@ const query = [
         message: 'Please provide any testing instructions',
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'license',
-        message: 'ISC',
+        message: 'Which license are you using for your project?',
+        choices: ['ISC', 'MIT', 'IBM', 'Apache', 'BSD'],
     },
     {
         type: 'input',
         name: 'github',
-        message: 'Enter your GitHub Username',
+        message: 'Please enter your GitHub Username',
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Enter your email address?',
+        message: 'Please enter your email address',
     },
 ]
 

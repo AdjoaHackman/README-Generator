@@ -1,17 +1,23 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (license == 'ISC') {
-    return '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)';
+  if (license !== 'None') {
+    return `![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)`;
   }
-  return 'no license for' + license
+  return '';
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (license == 'ISC') {
+  if (license === 'ISC') {
     return 'https://opensource.org/license/isc-license-txt';
+  }
+  else if (license === 'MIT'){
+    return 'https://opensource.org/licenses/MIT';
+  }
+  else if (license === 'IBM'){
+    return 'https://opensource.org/licenses/IPL-1.0';
   }
   return 'no license for' + license
 }
@@ -32,9 +38,12 @@ function generateMarkdown(data) {
   licenseBadge = renderLicenseBadge(data.license)
   return `
 # Title
+${licenseBadge}
 ${data.title}
 # Description
 ${data.description}
+# Table of Contents
+[Installation](#installation)
 # Installation
 ${data.installation}
 # Usage
@@ -45,12 +54,10 @@ ${data.contribution}
 ${data.testing}
 # License
 ${licenseSection}
-[License Badge](${licenseBadge})
+${licenseBadge}
 [License Link](${licenseLink})
-# GitHub
-${data.github}
-# Email
-${data.email}
+# Questions
+Feel free to reach out with any questions via Github ${data.github} or email ${data.email}
 `;
 }
 
