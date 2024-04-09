@@ -54,7 +54,7 @@ const query = [
         type: 'list',
         name: 'license',
         message: 'Which license are you using for your project?',
-        choices: ['ISC', 'MIT', 'IBM', 'Apache', 'BSD'],
+        choices: ['ISC', 'MIT', 'IBM', 'Apache', 'Eclipse'],
     },
     {
         type: 'input',

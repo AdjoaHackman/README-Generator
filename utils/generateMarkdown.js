@@ -19,6 +19,12 @@ function renderLicenseLink(license) {
   else if (license === 'IBM'){
     return 'https://opensource.org/licenses/IPL-1.0';
   }
+  else if (license === 'Apache'){
+    return 'https://opensource.org/licenses/Apache-2.0';
+  }
+  else if (license === 'Eclipse'){
+    return 'https://opensource.org/licenses/EPL-1.0';
+  }
   return 'no license for' + license
 }
 
@@ -38,12 +44,17 @@ function generateMarkdown(data) {
   licenseBadge = renderLicenseBadge(data.license)
   return `
 # Title
-${licenseBadge}
 ${data.title}
+${licenseBadge}
 # Description
 ${data.description}
 # Table of Contents
-[Installation](#installation)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Testing](#testing)
+- [License](#license)
+- [Questions](#questions)
 # Installation
 ${data.installation}
 # Usage
@@ -57,7 +68,7 @@ ${licenseSection}
 ${licenseBadge}
 [License Link](${licenseLink})
 # Questions
-Feel free to reach out with any questions via Github ${data.github} or email ${data.email}
+Feel free to reach out with any questions via [GitHub](https://github.com/${data.github}) or email ${data.email}
 `;
 }
 
